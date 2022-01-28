@@ -1,0 +1,29 @@
+.timer {
+  font-size: 3rem;
+}
+
+.timer-button {
+  border: 1px solid rgb(175, 175, 175);
+  background-color: rgb(141, 197, 235);
+  border-radius: 7px;
+  cursor: pointer;
+  padding: 0.8rem;
+  margin-bottom: 10px;
+  font-size: large;
+  width: 100px;
+}
+
+.timer-button:hover {
+  background-color: rgb(255, 200, 97);
+}
+
+@media screen and (max-width: 760px) {
+  .timer {
+    font-size: 2rem;
+  }
+
+  .timer-button {
+    font-size: medium;
+    padding: 0.5rem;
+  }
+}

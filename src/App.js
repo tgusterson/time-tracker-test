@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import TimerContext from './components/TimerContext';
+import TaskList from './components/TaskList';
+import TaskView from './components/TaskView';
+import TrackerView from './components/TrackerView';
+import '@fontsource/open-sans';
+import './styles/index.scss';
 
 function App() {
+  const [selectedTaskID, setSelectedTaskID] = useState();
+  const [selectedTaskName, setSelectedTaskName] = useState();
+  const [timerStopped, setTimerStopped] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div className='app-container'>
+        <TimerContext.Provider value={{ timerStopped, setTimerStopped }}>
+          <TaskList
+            setSelectedTaskID={setSelectedTaskID}
+            setSelectedTaskName={setSelectedTaskName}
+          />
+          <div className='task-view-container'>
+            {selectedTaskID && (
+              <TrackerView
+                selectedTaskID={selectedTaskID}
+                selectedTaskName={selectedTaskName}
+              />
+            )}
+            <TaskView selectedTaskID={selectedTaskID} />
+          </div>
+        </TimerContext.Provider>
+      </div>
     </div>
   );
 }

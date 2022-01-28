@@ -1,0 +1,27 @@
+.task-list-container {
+  min-height: 475px;
+}
+
+.task-list-search {
+  padding: 1rem;
+  margin: 0.5rem;
+  font-size: 1.3rem;
+  border-radius: 7px;
+}
+
+.task-list-item {
+  cursor: pointer;
+  list-style: none;
+  line-height: 2;
+  padding: 0.4rem;
+  border-radius: 7px;
+}
+
+.task-list-item:hover,
+.task-list-item-selected {
+  background-color: rgb(175, 175, 175);
+}
+
+.task-list-item-disabled {
+  cursor: not-allowed;
+}
