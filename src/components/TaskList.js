@@ -41,12 +41,12 @@ const TaskList = ({ setSelectedTaskID, setSelectedTaskName }) => {
             return (
               <li
                 key={task.id}
-                onClick={(e) => {
+                onClick={() => {
                   if (timerStopped === true) {
                     setSelectedTaskID(task.id);
                     setSelectedTaskName(task.name);
+                    toggleClass(index);
                   }
-                  toggleClass(index);
                 }}
                 className={`task-list-item ${
                   timerStopped === false && 'task-list-item-disabled'
